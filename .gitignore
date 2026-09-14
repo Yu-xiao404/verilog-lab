@@ -1,0 +1,15 @@
+# 仿真与编译生成物
+build/
+obj_dir/
+*.vvp
+*.vcd
+*.o
+*.a
+
+# 操作系统/编辑器杂项
+.DS_Store
+Thumbs.db
+__pycache__/
+*.swp
+.vscode/
+.idea/

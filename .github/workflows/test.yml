@@ -1,0 +1,32 @@
+name: ci
+
+# 推送到 main 分支、或提交 Pull Request 时，GitHub 自动跑一遍全部测试
+# 这就是硬件设计领域的 CI/CD：每次提交都由云端机器验证电路行为
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  simulate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install open-source Verilog simulator
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y iverilog
+
+      - name: Run all testbenches
+        run: make test
+
+      # 无论成功失败都上传波形，失败时方便下载下来排查
+      - name: Upload waveforms
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: waveforms
+          path: build/*.vcd
+          if-no-files-found: ignore
