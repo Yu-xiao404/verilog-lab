@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Install open-source Verilog simulator
         run: |
@@ -25,7 +25,7 @@ jobs:
       # 无论成功失败都上传波形，失败时方便下载下来排查
       - name: Upload waveforms
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: waveforms
           path: build/*.vcd

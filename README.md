@@ -1,5 +1,7 @@
 # verilog-lab
 
+[![ci](https://github.com/Yu-xiao404/verilog-lab/actions/workflows/test.yml/badge.svg)](https://github.com/Yu-xiao404/verilog-lab/actions/workflows/test.yml)
+
 > 计算机专业学生的「数字芯片设计」以做代练仓库：用写代码、写测试、跑 CI 的方式入门半导体数字设计。
 > 不需要任何硬件基础，不需要芯片开发板，一台能装 Linux 终端的电脑即可。
 
